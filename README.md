@@ -13,11 +13,9 @@ IndraReactNative is a mobile version of Indra agent-based modeling system. It ut
 * Install/Update react-native by running 
 * In the project directory, run
 ```
-$ npm i
-```
-```
-$ cd ios && pod install && cd ..
+$npm i
+$cd ios && pod install && cd ..
 ```
 to install required node modules and pods
 
-* In the project directory, use `$react-native run-ios` to build and run the app
+* In the project directory, use `$ react-native run-ios` to build and run the app
