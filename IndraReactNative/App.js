@@ -7,9 +7,12 @@
  */
 
 import React from 'react';
+import { AppRegistry } from 'react-native';
 import {
   StyleSheet, Text, View
 } from 'react-native';
+
+AppRegistry.registerComponent('main', () => App);
 
 const App: () => React$Node = () => {
   return (
