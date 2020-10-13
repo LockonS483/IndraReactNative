@@ -18,9 +18,7 @@ AppRegistry.registerComponent('main', () => App);
 const App: () => React$Node = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.titleText}>-Hello Indra-</Text>
       <List />
-      
     </View>
   );
 };
@@ -32,10 +30,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  titleText: {
-    fontSize: 25,
-    fontWeight: 'bold',
-  },
+  
 });
 
 export default App;

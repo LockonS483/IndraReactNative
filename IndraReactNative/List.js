@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Text, View, TouchableOpacity, StyleSheet, Dimensions, ScrollView } from 'react-native'
 
 var width = Dimensions.get('window').width;
+var height = Dimensions.get('window').height;
 
 class List extends Component {
     state = {
@@ -54,12 +55,14 @@ class List extends Component {
     render() {
        return (
           <View>
-              <ScrollView>
+              
+              <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{paddingBottom: 50}} style = {styles.scroll}>
+              <Text style={styles.titleText}>-Hello Indra-</Text>
              {
                 this.state.names.map((item, index) => (
                    <TouchableOpacity
                       key = {item.id}
-                      style = {styles.container}
+                      style = {styles.model}
                       onPress = {() => this.alertItemName(item)}>
                       <Text style = {styles.text}>
                          {item.name}
@@ -75,15 +78,25 @@ class List extends Component {
  export default List
  
  const styles = StyleSheet.create ({
-    container: {
+    model: {
         padding: 30,
-        width: width* 0.9,
-        marginTop: 10,
+        width: width * 0.9,
+        marginTop: 8,
         backgroundColor: 'white',
         alignItems: 'center',
         borderRadius: 5,
     },
     text: {
        color: '#4f603c'
-    }
+    },
+    scroll: {
+        marginTop: height * 0.05,
+        height: '100%',
+    },
+    titleText: {
+        fontSize: 25,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginBottom: 10,
+      },
  })
