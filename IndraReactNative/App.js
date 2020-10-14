@@ -11,14 +11,14 @@ import { AppRegistry } from 'react-native';
 import {
   StyleSheet, Text, View
 } from 'react-native';
-import List from './List.js'
+import List from './components/List.js';
 
 AppRegistry.registerComponent('main', () => App);
 
 const App: () => React$Node = () => {
   return (
     <View style={styles.container}>
-      <List />
+      <List/>
     </View>
   );
 };
