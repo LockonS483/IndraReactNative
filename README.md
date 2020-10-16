@@ -10,8 +10,7 @@ IndraReactNative is a mobile version of Indra agent-based modeling system. It ut
 ## Setup
 * Install XCode and its command line tools
 * Make sure node, watchman, and cocoapods is installed
-* Install/Update react-native by running 
-* In the project directory, run
+* Install/Update react-native, and install pods; In the project directory, run
 ```
 $npm i
 $cd ios && pod install && cd ..
