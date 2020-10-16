@@ -5,54 +5,9 @@ var width = Dimensions.get('window').width;
 var height = Dimensions.get('window').height;
 
 class List extends Component {
-    /*state = {
-       names: [
-          {
-             id: 0,
-             name: 'Basic',
-          },
-          {
-             id: 1,
-             name: 'Bacteria',
-          },
-          {
-             id: 2,
-             name: 'El Farol Bar',
-          },
-          {
-             id: 3,
-             name: 'Adam Smith\'s Fashion Model',
-          },
-          {
-            id: 4,
-            name: 'Predator-Prey Dynamics',
-          },
-          {
-            id: 5,
-            name: 'Schelling\'s Segregation Model',
-          },
-          {
-            id: 6,
-            name: 'Menger\'s Origin of Money',
-          },
-          {
-            id: 7,
-            name: 'Epidemic Model',
-          },
-          {
-            id: 8,
-            name: 'An Abelian Sandpile',
-          },
-          {
-            id: 9,
-            name: 'Wolfram\'s Rules',
-          },
-       ]
-    }*/
     constructor(props) {
-      super(props);
-      this.state = {names: [], dataNames: []};
-
+        super(props);
+        this.state = {names: [], dataNames: []};
     }
     
     componentDidMount(){
