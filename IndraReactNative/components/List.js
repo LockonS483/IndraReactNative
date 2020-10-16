@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { Text, View, TouchableOpacity, StyleSheet, Dimensions, ScrollView } from 'react-native'
+var testData = require('../test_data/models.json');
 
 var width = Dimensions.get('window').width;
 var height = Dimensions.get('window').height;
 
 class List extends Component {
-    state = {
+    /*state = {
        names: [
           {
              id: 0,
@@ -48,31 +49,43 @@ class List extends Component {
             name: 'Wolfram\'s Rules',
           },
        ]
+    }*/
+    state = { names : [] };
+
+    componentDidMount(){
+        var dataNames = testData["models_database"];
+        var activeNames = [];
+        dataNames.forEach((item, index) => {
+            if(item.active){
+                activeNames.push(item);
+            }
+        });
+        this.setState({names : activeNames});
     }
+
     alertItemName = (item) => {
-       alert(item.name)
+       alert(item.name);
     }
     render() {
-       return (
-          <View>
-              
+        return (
+        <View>
               <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{paddingBottom: 50}} style = {styles.scroll}>
-              <Text style={styles.titleText}>-Hello Indra-</Text>
-             {
-                this.state.names.map((item, index) => (
-                   <TouchableOpacity
-                      key = {item.id}
-                      style = {styles.model}
-                      onPress = {() => this.alertItemName(item)}>
-                      <Text style = {styles.text}>
-                         {item.name}
-                      </Text>
-                   </TouchableOpacity>
-                ))
-             }
-             </ScrollView>
-          </View>
-       )
+                <Text style={styles.titleText}>-Indra Models-</Text>
+                {
+                    this.state.names.map((item, index) => (
+                           <TouchableOpacity
+                              key = {item.name}
+                              style = {styles.model}
+                              onPress = {() => this.alertItemName(item)}>
+                                <Text style = {styles.text}>
+                                    {item.name}
+                                </Text>
+                           </TouchableOpacity>
+                    ))
+                }
+            </ScrollView>
+        </View>
+        )
     }
  }
  export default List
