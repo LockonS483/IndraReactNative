@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import { Text, View, TouchableOpacity, StyleSheet, Dimensions, ScrollView } from 'react-native'
 var testData = require('../test_data/models.json');
 
@@ -50,17 +50,30 @@ class List extends Component {
           },
        ]
     }*/
-    state = { names : [] };
+    constructor(props) {
+      super(props);
+      this.state = {names: [], dataNames: []};
 
+    }
+    
     componentDidMount(){
-        var dataNames = testData["models_database"];
-        var activeNames = [];
-        dataNames.forEach((item, index) => {
-            if(item.active){
-                activeNames.push(item);
-            }
-        });
-        this.setState({names : activeNames});
+        fetch('http://indrasnet.pythonanywhere.com/models', {
+          method: 'GET'
+        })
+        .then((response) => response.json())
+        .then((responseJson) => {
+          this.setState({
+            dataNames: responseJson
+          })
+          var activeNames = [];
+          this.state.dataNames.forEach((item, index) => {
+              if(item.active){
+                  activeNames.push(item);
+              }
+          });
+          this.setState({names : activeNames});
+        })
+        
     }
 
     alertItemName = (item) => {
