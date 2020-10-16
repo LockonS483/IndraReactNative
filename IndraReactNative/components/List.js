@@ -1,6 +1,5 @@
 import React, { Component, useState } from 'react'
 import { Text, View, TouchableOpacity, StyleSheet, Dimensions, ScrollView } from 'react-native'
-var testData = require('../test_data/models.json');
 
 var width = Dimensions.get('window').width;
 var height = Dimensions.get('window').height;
