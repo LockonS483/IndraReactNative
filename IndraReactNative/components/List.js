@@ -1,5 +1,7 @@
 import React, { Component, useState } from 'react'
 import { Text, View, TouchableOpacity, StyleSheet, Dimensions, ScrollView } from 'react-native'
+import axios from 'axios'
+import config from '../config'
 
 var width = Dimensions.get('window').width;
 var height = Dimensions.get('window').height;
@@ -8,10 +10,12 @@ class List extends Component {
     constructor(props) {
         super(props);
         this.state = {names: [], dataNames: []};
+        this.api_server = config.API_URL;
     }
     
     componentDidMount(){
-        fetch('http://indrasnet.pythonanywhere.com/models', {
+        //Non-axios API call
+        /*fetch('http://indrasnet.pythonanywhere.com/models', {
           method: 'GET'
         })
         .then((response) => response.json())
@@ -26,8 +30,24 @@ class List extends Component {
               }
           });
           this.setState({names : activeNames});
-        })
+        })*/
         
+        //API call using Axios
+        try{
+            axios.get(`${this.api_server}models`)
+            .then((res) => {
+                var r = res.data;
+                var activeNames = [];
+                r.forEach((item, index) => {
+                    if(item.active){
+                        activeNames.push(item);
+                    }
+                });
+                this.setState({names : activeNames});
+            });
+        } catch(e) {
+            console.log(e);
+        }
     }
 
     alertItemName = (item) => {
