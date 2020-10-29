@@ -60,8 +60,8 @@ class List extends Component {
                 <Text style={styles.titleText}>-Indra Models-</Text>
                 {
                     this.state.names.map((item, index) => (
-                           <TouchableOpacity
-                              key = {item.name}
+                           <TouchableOpacity 
+                              key = {index}
                               style = {styles.model}
                               onPress = {() => this.alertItemName(item)}>
                                 <Text style = {styles.text}>
