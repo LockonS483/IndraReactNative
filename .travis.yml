@@ -4,10 +4,9 @@ env:
 
 language: node_js
 node_js: lts/*
-sudo: true
 before_install:
-  - sudo npm install -g yarn
-  - sudo npm install -g expo-cli@2.2.0
+  - npm install -g yarn
+  - npm install -g expo-cli@2.2.0
   - expo login -u $indrareactnative -p $qawsedrf12345
 cache:
   yarn: true
