@@ -33,7 +33,7 @@ class List extends Component {
         })*/
         
         //API call using Axios
-        try{
+        /*try{
             axios.get(`${this.api_server}models`)
             .then((res) => {
                 var r = res.data;
@@ -47,7 +47,7 @@ class List extends Component {
             });
         } catch(e) {
             console.log(e);
-        }
+        }*/
     }
 
     alertItemName = (item) => {
@@ -56,24 +56,6 @@ class List extends Component {
     render() {
         return (
         <View>
-              <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{paddingBottom: 50}} style = {styles.scroll}>
-                <Text style={styles.titleText}>-Indra Models-</Text>
-                {
-                    this.state.names.map((item, index) => (
-                           <TouchableOpacity
-                              key = {index}
-                              style = {styles.model}
-                              onPress = {() => this.alertItemName(item)}>
-                                <Text style = {styles.text}>
-                                    {item.name}
-                                </Text>
-                                <Text style = {styles.smalltext}>
-                                    {item.doc}
-                                </Text>
-                           </TouchableOpacity>
-                    ))
-                }
-            </ScrollView>
         </View>
         )
     }
@@ -92,15 +74,8 @@ class List extends Component {
         borderRadius: 0,
     },
     text: {
-       color: '#4f603c',
-       fontSize: 16,
+       color: '#4f603c'
     },
-    smalltext: {
-        color: '#7c8a6d',
-        fontSize: 11,
-        marginTop: 1,
-        textAlign: 'center',
-     },
     scroll: {
         marginTop: height * 0.05,
         height: '100%',
