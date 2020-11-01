@@ -1,10 +1,9 @@
-import React, { Component, useState } from 'react'
-import { Text, View, TouchableOpacity, StyleSheet, Dimensions, ScrollView } from 'react-native'
+import React, { Component } from 'react'
+import { View} from 'react-native'
 import axios from 'axios'
 import config from '../config'
+import ModelOverviews from './ModelOverviews'
 
-var width = Dimensions.get('window').width;
-var height = Dimensions.get('window').height;
 
 class List extends Component {
     constructor(props) {
@@ -14,25 +13,6 @@ class List extends Component {
     }
     
     componentDidMount(){
-        //Non-axios API call
-        /*fetch('http://indrasnet.pythonanywhere.com/models', {
-          method: 'GET'
-        })
-        .then((response) => response.json())
-        .then((responseJson) => {
-          this.setState({
-            dataNames: responseJson
-          })
-          var activeNames = [];
-          this.state.dataNames.forEach((item, index) => {
-              if(item.active){
-                  activeNames.push(item);
-              }
-          });
-          this.setState({names : activeNames});
-        })*/
-        
-        //API call using Axios
         try{
             axios.get(`${this.api_server}models`)
             .then((res) => {
@@ -53,62 +33,14 @@ class List extends Component {
     alertItemName = (item) => {
        alert(item.name);
     }
+
     render() {
         return (
         <View>
-              <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{paddingBottom: 50}} style = {styles.scroll}>
-                <Text style={styles.titleText}>-Indra Models-</Text>
-                {
-                    this.state.names.map((item, index) => (
-                           <TouchableOpacity
-                              key = {index}
-                              style = {styles.model}
-                              onPress = {() => this.alertItemName(item)}>
-                                <Text style = {styles.text}>
-                                    {item.name}
-                                </Text>
-                                <Text style = {styles.smalltext}>
-                                    {item.doc}
-                                </Text>
-                           </TouchableOpacity>
-                    ))
-                }
-            </ScrollView>
+            <ModelOverviews models={this.state.names}/>
         </View>
         )
     }
  }
  export default List
  
- const styles = StyleSheet.create ({
-    model: {
-        padding: 10,
-        width: width * 0.9,
-        height: height * 0.06,
-        marginTop: 6,
-        backgroundColor: 'white',
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: 0,
-    },
-    text: {
-       color: '#4f603c',
-       fontSize: 16,
-    },
-    smalltext: {
-        color: '#7c8a6d',
-        fontSize: 11,
-        marginTop: 1,
-        textAlign: 'center',
-     },
-    scroll: {
-        marginTop: height * 0.05,
-        height: '100%',
-    },
-    titleText: {
-        fontSize: 25,
-        fontWeight: 'bold',
-        textAlign: 'center',
-        marginBottom: 10,
-    },
- })
