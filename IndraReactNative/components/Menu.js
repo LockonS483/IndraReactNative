@@ -5,7 +5,7 @@ import config from '../config'
 import ModelOverviews from './ModelOverviews'
 
 
-class List extends Component {
+class Menu extends Component {
     constructor(props) {
         super(props);
         this.state = {names: [], dataNames: []};
@@ -42,5 +42,5 @@ class List extends Component {
         )
     }
  }
- export default List
+ export default Menu
  

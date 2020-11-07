@@ -11,7 +11,10 @@ const ModelOverviews = ({models}) => {
             <Text style={styles.titleText}>-Indra Models-</Text>
             {
                 models.map((item, index) => (
-                    <ModelCard model={item} index={index}/>
+                    <ModelCard 
+                        model={item} 
+                        index={index}
+                    />
                 ))
             }
         </ScrollView>
