@@ -5,17 +5,21 @@ import { TouchableOpacity, StyleSheet, Dimensions, Text} from 'react-native';
 var width = Dimensions.get('window').width;
 var height = Dimensions.get('window').height;
 
-const ModelCard = ({model, index}) => {
+alertItemName = (name) => {
+    alert(name);
+}
+
+const ModelCard = ({name, doc, index}) => {
     return (
         <TouchableOpacity
             key = {index}
             style = {styles.model}
-            onPress = {() => this.alertItemName(item)}>
+            onPress = {() => alertItemName(name)}>
             <Text style = {styles.text}>
-                {model.name}
+                {name}
             </Text>
             <Text style = {styles.smalltext}>
-                {model.doc}
+                {doc}
             </Text>
         </TouchableOpacity>
     )
