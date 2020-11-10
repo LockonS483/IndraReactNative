@@ -10,7 +10,7 @@ var height = Dimensions.get('window').height;
 class Menu extends Component {
     constructor(props) {
         super(props);
-        this.state = {names: []};
+        this.state = {names: [], title: "-Indra Models-"};
         this.api_server = config.API_URL;
     }
     
@@ -36,7 +36,7 @@ class Menu extends Component {
         return (
         <View>
             <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{paddingBottom: 50}} style = {styles.scroll}>
-            <Text style={styles.titleText}>-Indra Models-</Text>
+            <Text style={styles.titleText}>{this.state.title}</Text>
             {
                 this.state.names.map((item, index) => (
                     <ModelCard 
