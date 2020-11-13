@@ -4,3 +4,5 @@ IndraReactNative/ios/IndraReactNative.xcodeproj/project.xcworkspace/contents.xcw
 IndraReactNative/ios/IndraReactNative.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
 **.expo
 IndraReactNative/.expo/packager-info.json
+IndraReactNative/test_data/.eslintrc.js
+IndraReactNative/.eslintrc.json
