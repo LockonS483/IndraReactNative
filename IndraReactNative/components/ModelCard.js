@@ -1,20 +1,19 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet, Dimensions, Text} from 'react-native';
+import { tsConstructorType } from '@babel/types';
 
 
 var width = Dimensions.get('window').width;
 var height = Dimensions.get('window').height;
 
-alertItemName = (name) => {
-    alert(name);
-}
 
-const ModelCard = ({name, doc, index}) => {
+
+const ModelCard = ({name, doc, index, clickFunction}) => {
     return (
         <TouchableOpacity
             key = {index}
             style = {styles.model}
-            onPress = {() => alertItemName(name)}>
+            onPress = {() => {clickFunction(name)}}>
             <Text style = {styles.text}>
                 {name}
             </Text>

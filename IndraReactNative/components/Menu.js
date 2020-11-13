@@ -12,6 +12,7 @@ class Menu extends Component {
         super(props);
         this.state = {names: [], title: "-Indra Models-"};
         this.api_server = config.API_URL;
+        this.alertModelName = this.alertModelName.bind(this);
     }
     
     componentDidMount(){
@@ -32,6 +33,10 @@ class Menu extends Component {
         }
     }
 
+    alertModelName = (name) => {
+        alert(name);
+    }
+
     render() {
         return (
         <View>
@@ -43,6 +48,7 @@ class Menu extends Component {
                         name={item.name}
                         doc={item.doc}
                         index={index}
+                        clickFunction={this.alertModelName}
                     />
                 ))
             }
