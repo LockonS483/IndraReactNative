@@ -1,12 +1,16 @@
 import React, { useState, useRef } from 'react';
-import { TouchableOpacity, StyleSheet, Dimensions, Text} from 'react-native';
-import { tsConstructorType } from '@babel/types';
-import popover, {Rect} from 'react-native-popover-view';
+import { TouchableOpacity, StyleSheet, Dimensions, Text, PixelRatio} from 'react-native';
 import Popover from 'react-native-popover-view/dist/Popover';
 
 
 var width = Dimensions.get('window').width;
 var height = Dimensions.get('window').height;
+const scale = height / 680;
+
+function normalize(size) {
+    const newSize = size * scale 
+    return Math.round(PixelRatio.roundToNearestPixel(newSize))
+}
 
 
 
@@ -50,11 +54,11 @@ const styles = StyleSheet.create ({
     },
     text: {
         color: '#4f603c',
-        fontSize: 16,
+        fontSize: normalize(16),
     },
     smalltext: {
          color: '#4f603c',
-         fontSize: 11,
+         fontSize: normalize(11),
          marginTop: 1,
          textAlign: 'center',
     },
