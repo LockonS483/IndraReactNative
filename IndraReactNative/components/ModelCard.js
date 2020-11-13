@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import { TouchableOpacity, StyleSheet, Dimensions, Text} from 'react-native';
-import { Tooltip } from 'react-native-elements';
 import { tsConstructorType } from '@babel/types';
 import popover, {Rect} from 'react-native-popover-view';
 import Popover from 'react-native-popover-view/dist/Popover';
