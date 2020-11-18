@@ -58,7 +58,7 @@ class Menu extends Component {
             <Dropdown
                 label='Choose a model'
                 data={this.state.dropdown}
-                itemCount= '8'
+                itemCount= '4'
                 dropdownOffset={styles.dropdownOffset}
                 containerStyle={styles.containerStyle}
             />
