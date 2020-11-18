@@ -15,6 +15,8 @@
     "react": "16.13.1",
     "react-native": "0.63.3",
     "react-native-elements": "^3.0.0-alpha.1",
+    "react-native-material-dropdown-v2": "^0.11.1",
+    "react-native-paper": "^4.4.0",
     "react-native-popover-view": "^3.1.1",
     "react-native-vector-icons": "^7.1.0"
   },

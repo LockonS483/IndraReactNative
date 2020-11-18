@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, ScrollView, Dimensions } from 'react-native'
+import { Dropdown } from 'react-native-material-dropdown-v2';
 import axios from 'axios'
 import config from '../config'
 import ModelCard from './ModelCard'
@@ -7,10 +8,12 @@ import ModelCard from './ModelCard'
 var width = Dimensions.get('window').width;
 var height = Dimensions.get('window').height;
 
+
 class Menu extends Component {
+    
     constructor(props) {
         super(props);
-        this.state = {names: [], title: "-Indra Models-"};
+        this.state = {names: [], title: "-Indra Models-", dropdown: []};
         this.api_server = config.API_URL;
         this.alertModelName = this.alertModelName.bind(this);
     }
@@ -20,6 +23,7 @@ class Menu extends Component {
             axios.get(`${this.api_server}models`)
             .then((res) => {
                 var r = res.data;
+                console.log(res.data)
                 var activeNames = [];
                 r.forEach((item, index) => {
                     if(item.active){
@@ -27,6 +31,15 @@ class Menu extends Component {
                     }
                 });
                 this.setState({names : activeNames});
+
+                //arr for dorpdown
+                var arr = [];
+                r.forEach((item, index) => {
+                    if(item.active){
+                        arr.push({value: item.name});
+                    }
+                });
+                this.setState({dropdown: arr})
             });
         } catch(e) {
             console.log(e);
@@ -42,6 +55,14 @@ class Menu extends Component {
         <View>
             <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{paddingBottom: 50}} style = {styles.scroll}>
             <Text style={styles.titleText}>{this.state.title}</Text>
+            <Dropdown
+                label='Choose a model'
+                data={this.state.dropdown}
+                itemCount= '8'
+                dropdownOffset={styles.dropdownOffset}
+                containerStyle={styles.containerStyle}
+            />
+            {/*
             {
                 this.state.names.map((item, index) => (
                     <ModelCard 
@@ -52,6 +73,7 @@ class Menu extends Component {
                     />
                 ))
             }
+            */}
             </ScrollView>
         </View>
         )
@@ -70,4 +92,11 @@ class Menu extends Component {
         textAlign: 'center',
         marginBottom: 10,
     },
+    dropdownOffset: {
+        top: height * 0.15, 
+        left: - width * 0.01
+    },
+    containerStyle: {
+        width: width * 0.8
+    }   
  })
