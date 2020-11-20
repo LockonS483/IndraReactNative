@@ -58,8 +58,9 @@ class Menu extends Component {
             <Dropdown
                 label='Choose a model'
                 data={this.state.dropdown}
-                itemCount= '4'
+                itemCount= '8'
                 dropdownOffset={styles.dropdownOffset}
+                dropdownPosition= '1'
                 containerStyle={styles.containerStyle}
             />
             {/*
@@ -90,10 +91,11 @@ class Menu extends Component {
         fontSize: 25,
         fontWeight: 'bold',
         textAlign: 'center',
-        marginBottom: 10,
+        marginTop: height *0.05,
+        marginBottom: height * 0.02,
     },
     dropdownOffset: {
-        top: height * 0.15, 
+        top: height * 0.14, 
         left: - width * 0.01
     },
     containerStyle: {
