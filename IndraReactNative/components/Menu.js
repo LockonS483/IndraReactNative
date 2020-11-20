@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, ScrollView, Dimensions } from 'react-native'
+import { View, Text, StyleSheet, ScrollView, Dimensions, TouchableOpacity } from 'react-native'
 import { Dropdown } from 'react-native-material-dropdown-v2';
 import axios from 'axios'
 import config from '../config'
 import ModelCard from './ModelCard'
+import { Paragraph } from 'react-native-paper';
 
 var width = Dimensions.get('window').width;
 var height = Dimensions.get('window').height;
@@ -13,9 +14,10 @@ class Menu extends Component {
     
     constructor(props) {
         super(props);
-        this.state = {names: [], title: "-Indra Models-", dropdown: []};
+        this.state = {names: [], title: "-Indra ABM Models-", dropdown: [], curID: -1, curDoc: "Choose a model to show description."}
         this.api_server = config.API_URL;
         this.alertModelName = this.alertModelName.bind(this);
+        this.onDropdownChange = this.onDropdownChange.bind(this);
     }
     
     componentDidMount(){
@@ -46,8 +48,13 @@ class Menu extends Component {
         }
     }
 
-    alertModelName = (name) => {
-        alert(name);
+    onDropdownChange(text, index, dat){
+        var selDoc = this.state.names[index].doc;
+        this.setState({curID: index, curDoc: selDoc});
+    }
+
+    alertModelName = () => {
+        alert(this.state.curID);
     }
 
     render() {
@@ -62,19 +69,18 @@ class Menu extends Component {
                 dropdownOffset={styles.dropdownOffset}
                 dropdownPosition= '1'
                 containerStyle={styles.containerStyle}
+                onChangeText = {this.onDropdownChange}
             />
-            {/*
-            {
-                this.state.names.map((item, index) => (
-                    <ModelCard 
-                        name={item.name}
-                        doc={item.doc}
-                        index={index}
-                        clickFunction={this.alertModelName}
-                    />
-                ))
-            }
-            */}
+            <Paragraph style={styles.doctext}>
+                {this.state.curDoc}
+            </Paragraph>
+            <TouchableOpacity
+                style = {styles.model}
+                onPress = {this.alertModelName}>
+                <Text style = {styles.text}>
+                    Use this model
+                </Text>
+            </TouchableOpacity>
             </ScrollView>
         </View>
         )
@@ -94,11 +100,28 @@ class Menu extends Component {
         marginTop: height *0.05,
         marginBottom: height * 0.02,
     },
+    doctext: {
+        padding: 10,
+        paddingHorizontal: width * 0.07,
+        height: height*0.1,
+    },
     dropdownOffset: {
         top: height * 0.14, 
         left: - width * 0.01
     },
     containerStyle: {
-        width: width * 0.8
-    }   
+        width: width * 0.8,
+        marginHorizontal: width * 0.07
+    },
+    model: {
+        padding: 10,
+        marginHorizontal: width * 0.1,
+        width: width * 0.8,
+        height: height * 0.06,
+        marginTop: 9,
+        backgroundColor: '#f6fafe',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 0,
+    }
  })
