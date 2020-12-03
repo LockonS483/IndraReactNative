@@ -3,7 +3,6 @@ import { View, Text, StyleSheet, ScrollView, Dimensions, TouchableOpacity } from
 import { Dropdown } from 'react-native-material-dropdown-v2';
 import axios from 'axios'
 import config from '../config'
-import ModelCard from './ModelCard'
 import { Paragraph } from 'react-native-paper';
 
 var width = Dimensions.get('window').width;
@@ -65,9 +64,9 @@ class Menu extends Component {
             <Dropdown
                 label='Choose a model'
                 data={this.state.dropdown}
-                itemCount= '8'
+                itemCount= {1}
                 dropdownOffset={styles.dropdownOffset}
-                dropdownPosition= '1'
+                dropdownPosition= {1}
                 containerStyle={styles.containerStyle}
                 onChangeText = {this.onDropdownChange}
             />
