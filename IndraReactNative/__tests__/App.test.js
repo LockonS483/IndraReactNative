@@ -9,10 +9,12 @@ import Menu from '../components/Menu';
 import renderer from 'react-test-renderer';
 
 jest.useFakeTimers()
-it('renders correctly', () => {
+it('renders app correctly', () => {
   renderer.create(<App />);
 });
 
 it('Renders title and list across the screen', () => {
   renderer.create(<Menu />);
 });
+
+

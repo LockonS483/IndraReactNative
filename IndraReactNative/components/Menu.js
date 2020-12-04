@@ -47,6 +47,7 @@ class Menu extends Component {
         }
     }
 
+    //Change model description after select a model in the dropdown
     onDropdownChange(text, index, dat){
         var selDoc = this.state.names[index].doc;
         this.setState({curID: index, curDoc: selDoc});
@@ -60,9 +61,13 @@ class Menu extends Component {
         return (
         <View>
             <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{paddingBottom: 50}} style = {styles.scroll}>
-            <Text style={styles.titleText}>{this.state.title}</Text>
+            <Text 
+                style={styles.titleText}
+                testID={"titleText"}>
+                {this.state.title}
+            </Text>
             <Dropdown
-                label='Choose a model'
+                label='Choose a model:'
                 data={this.state.dropdown}
                 itemCount= {1}
                 dropdownOffset={styles.dropdownOffset}
