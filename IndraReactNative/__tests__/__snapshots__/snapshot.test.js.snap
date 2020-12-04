@@ -69,6 +69,7 @@ exports[`Changes in App 1`] = `
             onResponderTerminationRequest={[Function]}
             onStartShouldSetResponder={[Function]}
             pointerEvents="box-only"
+            testID="dropdownBox"
           >
             <View
               style={
@@ -482,6 +483,7 @@ exports[`Changes in App 1`] = `
               "width": 600,
             }
           }
+          testID="confirmButton"
         >
           <Text>
             Use this model
@@ -552,6 +554,7 @@ exports[`Changes in Menu 1`] = `
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
           pointerEvents="box-only"
+          testID="dropdownBox"
         >
           <View
             style={
@@ -965,6 +968,7 @@ exports[`Changes in Menu 1`] = `
             "width": 600,
           }
         }
+        testID="confirmButton"
       >
         <Text>
           Use this model

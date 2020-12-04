@@ -54,7 +54,7 @@ class Menu extends Component {
     }
 
     alertModelName = () => {
-        alert(this.state.curID);
+        //alert(this.state.curID);
     }
 
     render() {
@@ -74,13 +74,15 @@ class Menu extends Component {
                 dropdownPosition= {1}
                 containerStyle={styles.containerStyle}
                 onChangeText = {this.onDropdownChange}
+                testID={"dropdownBox"}
             />
             <Paragraph style={styles.doctext}>
                 {this.state.curDoc}
             </Paragraph>
             <TouchableOpacity
                 style = {styles.model}
-                onPress = {this.alertModelName}>
+                onPress = {this.alertModelName}
+                testID = {"confirmButton"}>
                 <Text style = {styles.text}>
                     Use this model
                 </Text>
