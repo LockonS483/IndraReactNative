@@ -10,28 +10,11 @@ class List extends Component {
     constructor(props) {
         super(props);
         this.state = {names: [], dataNames: []};
-        this.api_server = config.API_URL;
+        this.api_server = config.API_URL + 'models/props/';
     }
     
     componentDidMount(){
-        //Non-axios API call
-        /*fetch('http://indrasnet.pythonanywhere.com/models', {
-          method: 'GET'
-        })
-        .then((response) => response.json())
-        .then((responseJson) => {
-          this.setState({
-            dataNames: responseJson
-          })
-          var activeNames = [];
-          this.state.dataNames.forEach((item, index) => {
-              if(item.active){
-                  activeNames.push(item);
-              }
-          });
-          this.setState({names : activeNames});
-        })*/
-        
+        //------ TODO: Change API call to model props from a model ID ------//
         //API call using Axios
         /*try{
             axios.get(`${this.api_server}models`)
