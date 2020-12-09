@@ -13,7 +13,7 @@ it('renders app correctly', () => {
   renderer.create(<App />);
 });
 
-it('Renders title and list across the screen', () => {
+it('Renders title and list across the screen', async() => {
   renderer.create(<Menu />);
 });
 

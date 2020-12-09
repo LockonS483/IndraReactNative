@@ -8,6 +8,10 @@ import { Paragraph } from 'react-native-paper';
 var width = Dimensions.get('window').width;
 var height = Dimensions.get('window').height;
 
+export const titleText = "titleText"
+export const dropdownBox = "dropdownBox"
+export const confirmButton = "confirmButton"
+
 
 class Menu extends Component {
     
@@ -63,7 +67,7 @@ class Menu extends Component {
             <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{paddingBottom: 50}} style = {styles.scroll}>
             <Text 
                 style={styles.titleText}
-                testID={"titleText"}>
+                testID={titleText}>
                 {this.state.title}
             </Text>
             <Dropdown
@@ -74,7 +78,7 @@ class Menu extends Component {
                 dropdownPosition= {1}
                 containerStyle={styles.containerStyle}
                 onChangeText = {this.onDropdownChange}
-                testID={"dropdownBox"}
+                testID={dropdownBox}
             />
             <Paragraph style={styles.doctext}>
                 {this.state.curDoc}
@@ -82,7 +86,7 @@ class Menu extends Component {
             <TouchableOpacity
                 style = {styles.model}
                 onPress = {this.alertModelName}
-                testID = {"confirmButton"}>
+                testID = {confirmButton}>
                 <Text style = {styles.text}>
                     Use this model
                 </Text>
