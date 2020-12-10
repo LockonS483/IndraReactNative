@@ -57,7 +57,7 @@ class Menu extends Component {
         this.setState({curID: index, curDoc: selDoc});
     }
 
-    alertModelName = () => {
+    alertModelName = async () => {
         //alert(this.state.curID);
     }
 

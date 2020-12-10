@@ -5,11 +5,13 @@ import React from 'react';
 import Menu, { titleText, dropdownBox, confirmButton } from '../components/Menu';
 
 
-test('test elements in Menu', () => {
+jest.useFakeTimers()
+test('test elements in Menu', async() => {
     const { getByTestId } = render(
       <Menu />
     );
     //debug('optional message'); //Debug output all elements after render the Menu component
+    
     const title = getByTestId(titleText)
     expect(title.props.children).toBe("-Indra ABM Models-")
 
@@ -17,18 +19,18 @@ test('test elements in Menu', () => {
 
     const button = getByTestId(confirmButton)
     expect(button).toBeTruthy()
-    console.log(typeof(button.props.children[0].props.children))
     expect(typeof(button.props.children[0].props.children)).toBe("string")
+    
   });
 
-
-  test('test elements in Menu', () => {
-    const onPressMock = jest.fn();
-    const { getByTestId } = render(
+  
+  test('test elements in Menu', async() => {
+    const onPressMock = await jest.fn();
+    const { getByTestId } = await render(
     //refactor this code in Menu.js?
     
     <TouchableOpacity
-        onPress = {onPressMock}
+        onPress = {await onPressMock}
         testID = {"confirmButton"}>
         <Text>
             Use this model
@@ -36,7 +38,6 @@ test('test elements in Menu', () => {
     </TouchableOpacity>
     
     )
-    fireEvent.press(getByTestId("confirmButton"))
-    expect(onPressMock).toHaveBeenCalled();
+    await fireEvent.press(getByTestId("confirmButton"))
+    await expect(onPressMock).toHaveBeenCalled();
   });
-  
