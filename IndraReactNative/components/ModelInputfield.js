@@ -25,7 +25,7 @@ function ModelInputfield(props){
                 onChange={propChange}
                 name={name}/>
             </div>
-            </br>
+            
         </div>
 
     );

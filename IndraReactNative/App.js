@@ -14,8 +14,10 @@ import {
   StyleSheet, Text, View
 } from 'react-native';
 import Menu from './components/Menu.js';
+import Properties from './components/Properties.js'
 
 AppRegistry.registerComponent('main', () => App);
+AppRegistry.registerComponent('properties', () => Properties);
 
 const Stack = createStackNavigator();
 
@@ -23,7 +25,8 @@ const App: () => React$Node = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Menu" component={Menu} />
+        <Stack.Screen name="Menu" component={Menu} options={{ headerShown: false }}/>
+        <Stack.Screen name="Properties" component={Properties} />
       </Stack.Navigator>
     </NavigationContainer>
   );

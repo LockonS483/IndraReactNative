@@ -86,9 +86,9 @@ class Menu extends Component {
             </Paragraph>
             <ButtonUseModel
                 buttonStyle = {styles.button}
-                onPress = {this.alertModelName}
                 testID = {confirmButton}
                 textStyle = {styles.buttonText}
+                navigation={this.props.navigation}
             />
             </ScrollView>
         </View>

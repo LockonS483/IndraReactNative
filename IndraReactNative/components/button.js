@@ -2,12 +2,12 @@ import React from 'react'
 import { Text, TouchableOpacity } from 'react-native'
 
 function ButtonUseModel(props){
-    const { buttonStyle, onPress, testID, textStyle } = props
+    const { buttonStyle, testID, textStyle, navigation } = props
 
     return(
         <TouchableOpacity
             style = {buttonStyle}
-            onPress = {onPress}
+            onPress={() => navigation.navigate('Properties')}
             testID = {testID}>
             <Text style = {textStyle}>
                 Use this model
