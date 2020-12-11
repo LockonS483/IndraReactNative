@@ -4,6 +4,7 @@ import { Dropdown } from 'react-native-material-dropdown-v2';
 import axios from 'axios'
 import config from '../config'
 import { Paragraph } from 'react-native-paper';
+import ButtonUseModel from './button.js'
 
 var width = Dimensions.get('window').width;
 var height = Dimensions.get('window').height;
@@ -58,12 +59,12 @@ class Menu extends Component {
     }
 
     alertModelName = async () => {
-        //alert(this.state.curID);
+        alert(this.state.curID);
     }
 
     render() {
         return (
-        <View>
+        <View style={styles.appContainer}>
             <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{paddingBottom: 50}} style = {styles.scroll}>
             <Text 
                 style={styles.titleText}
@@ -73,7 +74,7 @@ class Menu extends Component {
             <Dropdown
                 label='Choose a model:'
                 data={this.state.dropdown}
-                itemCount= {1}
+                itemCount= {4}
                 dropdownOffset={styles.dropdownOffset}
                 dropdownPosition= {1}
                 containerStyle={styles.containerStyle}
@@ -83,14 +84,12 @@ class Menu extends Component {
             <Paragraph style={styles.doctext}>
                 {this.state.curDoc}
             </Paragraph>
-            <TouchableOpacity
-                style = {styles.model}
+            <ButtonUseModel
+                buttonStyle = {styles.button}
                 onPress = {this.alertModelName}
-                testID = {confirmButton}>
-                <Text style = {styles.text}>
-                    Use this model
-                </Text>
-            </TouchableOpacity>
+                testID = {confirmButton}
+                textStyle = {styles.buttonText}
+            />
             </ScrollView>
         </View>
         )
@@ -99,6 +98,13 @@ class Menu extends Component {
  export default Menu
  
  const styles = StyleSheet.create ({
+    appContainer: {
+        flex: 1,
+        backgroundColor: '#ecf4f4',
+        alignItems: 'center',
+        justifyContent: 'center',
+        
+    },
     scroll: {
         marginTop: height * 0.05,
         height: '100%',
@@ -123,15 +129,19 @@ class Menu extends Component {
         width: width * 0.8,
         marginHorizontal: width * 0.07
     },
-    model: {
+    button: {
         padding: 10,
         marginHorizontal: width * 0.1,
         width: width * 0.8,
         height: height * 0.06,
         marginTop: 9,
-        backgroundColor: '#f6fafe',
+        backgroundColor: '#3399ff',
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: 0,
+        borderRadius: 5,
+    },
+    buttonText: {
+        color: 'white',
+        fontSize: height * 0.02
     }
  })

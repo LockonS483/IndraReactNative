@@ -31,7 +31,7 @@ test('test elements in Menu', async() => {
     
     <TouchableOpacity
         onPress = {await onPressMock}
-        testID = {"confirmButton"}>
+        testID = {confirmButton}>
         <Text>
             Use this model
         </Text>
