@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, ScrollView, Dimensions, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, ScrollView, Dimensions } from 'react-native'
 import { Dropdown } from 'react-native-material-dropdown-v2';
 import axios from 'axios'
 import config from '../config'
@@ -89,6 +89,7 @@ class Menu extends Component {
                 testID = {confirmButton}
                 textStyle = {styles.buttonText}
                 navigation={this.props.navigation}
+                modelID = {this.state.curID}
             />
             </ScrollView>
         </View>

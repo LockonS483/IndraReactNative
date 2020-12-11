@@ -1,23 +1,18 @@
-import React, { Component, useState } from 'react'
-import { Text, View, TouchableOpacity, StyleSheet, Dimensions, ScrollView } from 'react-native'
+import React from 'react'
+import { Text, View, Dimensions } from 'react-native'
 
 
 var width = Dimensions.get('window').width;
 var height = Dimensions.get('window').height;
 
-class Properties extends Component {
-    constructor(props) {
-        super(props);
-        
-    }
-    
-    
-    render() {
-        return (
+function Properties({route, navigation}) {
+    const { modelID } = route.params
+    console.log(modelID)
+    return (
         <View>
-            <Text>Properties</Text>
+            <Text>ModelID: {modelID}</Text>
         </View>
-        )
-    }
+    )
+    
  }
  export default Properties
