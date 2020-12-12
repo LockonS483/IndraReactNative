@@ -3,7 +3,7 @@ let PROPS_URL = API_URL + 'models/'
 
 if (process.env.REACT_APP_API_URL) {
   API_URL = process.env.REACT_APP_API_URL;
-  PROPS_URL = process.env.REACT_APP_API_URL + 'models/';
+  PROPS_URL = process.env.REACT_APP_API_URL + 'models/props';
 }
 
 const config = { API_URL, PROPS_URL };

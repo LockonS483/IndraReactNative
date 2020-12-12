@@ -16,7 +16,7 @@ class Properties extends Component {
     }
 
     async componentDidMount(){
-        const properties = await axios.get(`${this.props_url}${this.state.modelID}`)
+        let properties = await axios.get(`${this.props_url}${this.state.modelID}`)
         this.setState({modelDetails : properties.data});
         console.log(this.state.modelDetails);
     }
@@ -25,7 +25,7 @@ class Properties extends Component {
         return (
             <View>
                 <Text>ModelID: {this.state.modelID}</Text>
-            {/*<Form>
+            <Form>
                 <View className="container">
                 {Object.keys(this.state.modelDetails).map((item) => {
                     return (
@@ -33,16 +33,15 @@ class Properties extends Component {
                         label={this.state.modelDetails[item].question}
                         type={this.state.modelDetails[item].atype}
                         placeholder={this.state.modelDetails[item].val}
-                        error={this.state.modelDetails[item].errorMessage}
-                        propChange={this.propChanged}
+                        //error={this.state.modelDetails[item].errorMessage}
+                        //propChange={this.propChanged}
                         name={item}
                         key={item}
                         />
-                        <Text>hi</Text>
                     );
                 })}
                 </View>
-            </Form>*/}
+            </Form>
             </View>
         );
     }
