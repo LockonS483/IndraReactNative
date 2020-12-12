@@ -16,3 +16,5 @@ function Properties({route, navigation}) {
     
  }
  export default Properties
+
+ 
