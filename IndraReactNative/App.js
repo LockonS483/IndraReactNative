@@ -21,7 +21,7 @@ AppRegistry.registerComponent('properties', () => Properties);
 
 const Stack = createStackNavigator();
 
-const App: () => React$Node = () => {
+const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>

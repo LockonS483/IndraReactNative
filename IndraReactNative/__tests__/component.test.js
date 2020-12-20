@@ -1,26 +1,31 @@
 import 'react-native';
-import { Text, View, TouchableOpacity } from 'react-native'
-import { render, fireEvent } from '@testing-library/react-native';
+import { render, fireEvent, act } from '@testing-library/react-native';
 import React from 'react';
 import Menu, { titleText, dropdownBox, confirmButton } from '../components/Menu';
-import ButtonUseModel from '../components/button';
 
+import App from '../App';
 
 jest.useFakeTimers()
-test('test elements in Menu', async() => {
-    const { getByTestId } = render(
-      <Menu />
-    );
-    //debug('optional message'); //Debug output all elements after render the Menu component
-    
-    const title = getByTestId(titleText)
-    expect(typeof(title.props.children)).toBe("string")
+jest.mock('react-native/Libraries/Animated/src/NativeAnimatedHelper');
 
-    expect(getByTestId(dropdownBox)).toBeTruthy()
-
-    const button = getByTestId(confirmButton)
-    expect(button).toBeTruthy()
-    expect(typeof(button.props.children[0].props.children)).toBe("string")
-    fireEvent.press(getByTestId(confirmButton))
-    expect(onPressMock).toHaveBeenCalled();
+describe('Testing items on Menu page', () => {
+  test('menu page', async () => {
+    const { getByTestId } = render(<App />);
+    const title = getByTestId(titleText);
+    expect(typeof(title.props.children)).toBe("string");
+    expect(getByTestId(dropdownBox)).toBeTruthy();
+    const button = getByTestId(confirmButton);
+    expect(button).toBeTruthy();
+    expect(typeof(button.props.children[0].props.children)).toBe("string");
   });
+});
+
+describe('Test clicking on the button takes user to the properties page', () => {
+  test('menu page to properties page', async () => {
+    const { findByText, getByTestId } = render(<App />);
+    const button = getByTestId(confirmButton);
+    fireEvent.press(button);
+    const test = findByText('properties');
+    expect(test.toBeTruthy);
+  });
+});
