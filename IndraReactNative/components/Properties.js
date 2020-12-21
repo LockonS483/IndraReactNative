@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { View, Text, Form, StyleSheet, ScrollView, Dimensions } from 'react-native'
+import { Input } from 'react-native-elements'
 import axios from 'axios'
 import config from '../config'
 import ModelInputfield from './ModelInputfield.js'
+import { ButtonSubmitOptions } from './button.js'
 
 var width = Dimensions.get('window').width;
 var height = Dimensions.get('window').height;
@@ -59,10 +61,29 @@ class Properties extends Component {
                 </View>
             </Form>*/
 
-            let texto = JSON.stringify(this.state.modelDetails);
+            /*let texto = JSON.stringify(this.state.modelDetails);
             t = <Text>
                 {texto}
-            </Text>
+            </Text>*/
+            const mTestID = "submitTest"
+            t = <View className="container">
+                {Object.keys(this.state.modelDetails).map((key) => {
+                    var item = this.state.modelDetails[key]
+                    if(item.question != null){
+                        return(
+                            <>
+                                <Input label={item.question}/>
+                            </>
+                        );
+                    }else{
+                        return <></>
+                    }
+                })}
+                <ButtonSubmitOptions testID={mTestID}
+                textStyle={styles.buttonText}
+                buttonStyle={styles.button}
+                />
+            </View>
         }
 
         return (
@@ -86,3 +107,21 @@ class Properties extends Component {
     
  }*/
  export default Properties
+
+ const styles = StyleSheet.create ({
+    button: {
+        padding: 10,
+        marginHorizontal: width * 0.1,
+        width: width * 0.8,
+        height: height * 0.06,
+        marginTop: 9,
+        backgroundColor: '#3399ff',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 5,
+    },
+    buttonText: {
+        color: 'white',
+        fontSize: height * 0.02
+    }
+ })

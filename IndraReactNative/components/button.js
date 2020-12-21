@@ -2,7 +2,7 @@ import React from 'react'
 import { Text, TouchableOpacity } from 'react-native'
 
 function ButtonUseModel(props){
-    const { buttonStyle, testID, textStyle, navigation, modelID } = props
+    const { buttonStyle, testID, textStyle, navigation, modelID} = props
     console.log("modelID:", modelID)
     return(
         <TouchableOpacity
@@ -18,4 +18,21 @@ function ButtonUseModel(props){
     )
 }
 
-export default ButtonUseModel
+function ButtonSubmitOptions(props){
+    const { testID, buttonStyle, textStyle } = props
+    return(
+        <TouchableOpacity
+            style = {buttonStyle}
+            onPress={() => {}}
+            testID = {testID}>
+            <Text style = {textStyle}>
+                Submit
+            </Text>
+        </TouchableOpacity>
+    )
+}
+
+export {
+    ButtonUseModel, 
+    ButtonSubmitOptions, 
+}

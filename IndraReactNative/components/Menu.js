@@ -4,7 +4,7 @@ import { Dropdown } from 'react-native-material-dropdown-v2';
 import axios from 'axios'
 import config from '../config'
 import { Paragraph } from 'react-native-paper';
-import ButtonUseModel from './button.js'
+import { ButtonUseModel } from './button.js'
 
 var width = Dimensions.get('window').width;
 var height = Dimensions.get('window').height;

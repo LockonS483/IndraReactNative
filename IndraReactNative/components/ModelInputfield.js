@@ -1,33 +1,19 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { render } from 'react-dom'
-import { View, Text, StyleSheet, ScrollView, Dimensions, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, ScrollView, Dimensions, TouchableOpacity, Input } from 'react-native'
 
 function ModelInputfield(props){
     const{ label, name, type, placeholder, propChange, error } = props;
 
     return(
-        <div key={label} className='form-group'>
-            <div>
-                <label htmlFor={name}
-                className="detailLabel"
-                key={label}
-                >
-                    {label}
-                    {' '}
-                    {' '}
-                </label>
-                <input 
-                id={name}
-                type={type}
-                style={{fontSize:'13pt'}}
-                placeholder={placeholder}
-                onChange={propChange}
-                name={name}/>
-            </div>
-            
-        </div>
-
+        <View>
+            <Text>
+                {label}
+                {' '}
+                {' '}
+            </Text>
+        </View>
     );
 }
 
@@ -49,4 +35,4 @@ ModelInputfield.defaultProps = {
     error: '',
 };
 
-export default ModelInputfield;
+export default ModelInputfield
