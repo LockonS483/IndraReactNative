@@ -72,7 +72,8 @@ class Properties extends Component {
                     if(item.question != null){
                         return(
                             <>
-                                <Input label={item.question}/>
+                                <Input label={item.question}
+                                placeholder={String(item.val)}/>
                             </>
                         );
                     }else{
@@ -89,7 +90,9 @@ class Properties extends Component {
         return (
             <View>
             <Text>ModelID: {this.state.modelID}</Text>
-            {t}
+            <ScrollView contentInset={{top:10,bottom:50}}>
+                {t}
+            </ScrollView>
             </View>
         );
     }
