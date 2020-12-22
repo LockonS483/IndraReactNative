@@ -90,7 +90,7 @@ class Properties extends Component {
         return (
             <View>
             <Text>ModelID: {this.state.modelID}</Text>
-            <ScrollView contentInset={{top:10,bottom:50}}>
+            <ScrollView contentInset={{top:10,bottom:50}} style={styles.scrollConainer}>
                 {t}
             </ScrollView>
             </View>
@@ -126,5 +126,8 @@ class Properties extends Component {
     buttonText: {
         color: 'white',
         fontSize: height * 0.02
+    },
+    scrollConainer: {
+        height: height * 0.8,
     }
  })
