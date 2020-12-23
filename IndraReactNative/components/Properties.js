@@ -18,6 +18,7 @@ class Properties extends Component {
         this.props_url = config.PROPS_URL;
         this.state = { modelID : route.params.modelID, menuDetails : {}, loadingText : 'loading properties...', ready : false};
         this.props_url = config.PROPS_URL;
+        this.updateJson = this.updateJson.bind(this);
     }
 
     async componentDidMount(){
@@ -33,6 +34,12 @@ class Properties extends Component {
         } catch(e) {
             console.log(e);
         }*/
+    }
+
+    updateJson(key, param){
+        let properties = this.state.modelDetails
+        properties[key].val = param
+        this.setState({modelDetails: properties})
     }
 
     render() {
@@ -72,8 +79,11 @@ class Properties extends Component {
                     if(item.question != null){
                         return(
                             <>
-                                <Input label={item.question}
+                                <Input 
+                                label={item.question}
                                 placeholder={String(item.val)}/>
+                                onChangeText={(param) => this.updateJson(key, param)}
+                                />
                             </>
                         );
                     }else{
@@ -83,6 +93,7 @@ class Properties extends Component {
                 <ButtonSubmitOptions testID={mTestID}
                 textStyle={styles.buttonText}
                 buttonStyle={styles.button}
+                onclick={() => {alert(this.state.modelDetails);}}
                 />
             </View>
         }
