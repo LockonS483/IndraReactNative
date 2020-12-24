@@ -82,7 +82,7 @@ class Properties extends Component {
                                 <Input 
                                 label={item.question}
                                 placeholder={String(item.val)}
-                                //onChangeText={(param) => this.updateJson(key, param)}
+                                onChangeText={(param) => this.updateJson(key, param)}
                                 />
                             </>
                         );
