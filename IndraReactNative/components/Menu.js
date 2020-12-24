@@ -88,8 +88,8 @@ class Menu extends Component {
                 buttonStyle = {styles.button}
                 testID = {confirmButton}
                 textStyle = {styles.buttonText}
-                navigation={this.props.navigation}
-                modelID = {this.state.curID}
+                navigationPath={['Properties', {modelID: this.state.curID}]}
+                navigation = {this.props.navigation}
             />
             </ScrollView>
         </View>

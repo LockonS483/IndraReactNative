@@ -2,13 +2,12 @@ import React from 'react'
 import { Text, TouchableOpacity } from 'react-native'
 
 function ButtonUseModel(props){
-    const { buttonStyle, testID, textStyle, navigation, modelID} = props
-    console.log("modelID:", modelID)
+    const { buttonStyle, testID, textStyle, navigationPath, navigation} = props
     return(
         <TouchableOpacity
             style = {buttonStyle}
-            onPress={() => navigation.navigate('Properties', {
-                modelID: modelID
+            onPress={() => navigation.navigate(navigationPath[0], {
+                modelID: navigationPath[1].modelID
             })}
             testID = {testID}>
             <Text style = {textStyle}>
@@ -19,12 +18,12 @@ function ButtonUseModel(props){
 }
 
 function ButtonSubmitOptions(props){
-    const { testID, buttonStyle, textStyle } = props
+    const { buttonStyle, testID, textStyle, navigationPath, navigation} = props
     return(
         <TouchableOpacity
             style = {buttonStyle}
-            onPress={() => {}}
-            testID = {testID}>
+            testID = {testID}
+            onPress = {() => navigation.navigate(navigationPath[0], navigationPath[1])}>
             <Text style = {textStyle}>
                 Submit
             </Text>
@@ -36,3 +35,5 @@ export {
     ButtonUseModel, 
     ButtonSubmitOptions, 
 }
+
+//onpress = {() => navigation.navigate(navigationPath[0], navigationPath[1])}>

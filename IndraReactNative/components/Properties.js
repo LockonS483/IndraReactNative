@@ -4,7 +4,7 @@ import { Input } from 'react-native-elements'
 import axios from 'axios'
 import config from '../config'
 import ModelInputfield from './ModelInputfield.js'
-import { ButtonSubmitOptions } from './button.js'
+import { ButtonUseModel, ButtonSubmitOptions } from './button.js'
 
 var width = Dimensions.get('window').width;
 var height = Dimensions.get('window').height;
@@ -18,6 +18,7 @@ class Properties extends Component {
         this.props_url = config.PROPS_URL;
         this.state = { modelID : route.params.modelID, menuDetails : {}, loadingText : 'loading properties...', ready : false};
         this.props_url = config.PROPS_URL;
+        this.updateJson = this.updateJson.bind(this);
     }
 
     async componentDidMount(){
@@ -33,6 +34,12 @@ class Properties extends Component {
         } catch(e) {
             console.log(e);
         }*/
+    }
+
+    updateJson(key, param){
+        let properties = this.state.modelDetails
+        properties[key].val = Number(param)
+        this.setState({modelDetails: properties})
     }
 
     render() {
@@ -72,18 +79,25 @@ class Properties extends Component {
                     if(item.question != null){
                         return(
                             <>
-                                <Input label={item.question}
-                                placeholder={String(item.val)}/>
+                                <Input 
+                                label={item.question}
+                                placeholder={String(item.val)}
+                                //onChangeText={(param) => this.updateJson(key, param)}
+                                />
                             </>
                         );
                     }else{
                         return <></>
                     }
                 })}
+                
                 <ButtonSubmitOptions testID={mTestID}
                 textStyle={styles.buttonText}
                 buttonStyle={styles.button}
+                navigationPath={['ModelView', this.state.modelDetails]}
+                navigation={this.props.navigation}
                 />
+                
             </View>
         }
 

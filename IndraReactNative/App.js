@@ -15,9 +15,11 @@ import {
 } from 'react-native';
 import Menu from './components/Menu.js';
 import Properties from './components/Properties.js'
+import ModelView from './components/ModelView.js'
 
 AppRegistry.registerComponent('main', () => App);
 AppRegistry.registerComponent('properties', () => Properties);
+AppRegistry.registerComponent('modelview', () => ModelView);
 
 const Stack = createStackNavigator();
 
@@ -27,6 +29,7 @@ const App = () => {
       <Stack.Navigator>
         <Stack.Screen name="Menu" component={Menu} options={{ headerShown: false }}/>
         <Stack.Screen name="Properties" component={Properties} />
+        <Stack.Screen name="ModelView" component={ModelView} />
       </Stack.Navigator>
     </NavigationContainer>
   );
