@@ -39,7 +39,7 @@ class Properties extends Component {
     updateJson(key, param){
         let properties = this.state.modelDetails
         properties[key].val = Number(param)
-        this.setState({modelDetails: properties})
+        this.setState({modelNewDetails: properties})
     }
 
     render() {
@@ -90,11 +90,10 @@ class Properties extends Component {
                         return <></>
                     }
                 })}
-                
                 <ButtonSubmitOptions testID={mTestID}
                 textStyle={styles.buttonText}
                 buttonStyle={styles.button}
-                navigationPath={['ModelView', this.state.modelDetails]}
+                navigationPath={['ModelView', this.state.modelDetails, this.state.curID] }
                 navigation={this.props.navigation}
                 />
                 
@@ -103,7 +102,6 @@ class Properties extends Component {
 
         return (
             <View>
-            <Text>ModelID: {this.state.modelID}</Text>
             <ScrollView contentInset={{top:10,bottom:50}} style={styles.scrollConainer}>
                 {t}
             </ScrollView>
@@ -145,3 +143,4 @@ class Properties extends Component {
         height: height * 0.8,
     }
  })
+//onChangeText={(param) => this.updateJson(key, param)}

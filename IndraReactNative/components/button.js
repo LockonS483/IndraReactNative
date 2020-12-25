@@ -23,7 +23,7 @@ function ButtonSubmitOptions(props){
         <TouchableOpacity
             style = {buttonStyle}
             testID = {testID}
-            onPress = {() => navigation.navigate(navigationPath[0], navigationPath[1])}>
+            onPress = {() => navigation.navigate(navigationPath[0], { modelParams: navigationPath[1], modelID: navigationPath[2]})}>
             <Text style = {textStyle}>
                 Submit
             </Text>
