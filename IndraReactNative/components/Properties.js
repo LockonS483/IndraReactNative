@@ -5,6 +5,9 @@ import axios from 'axios'
 import config from '../config'
 import ModelInputfield from './ModelInputfield.js'
 import { ButtonUseModel, ButtonSubmitOptions } from './button.js'
+import { Logs } from 'expo'
+
+Logs.enableExpoCliLogging() //enable the logs in expo cli
 
 var width = Dimensions.get('window').width;
 var height = Dimensions.get('window').height;
@@ -24,7 +27,7 @@ class Properties extends Component {
     async componentDidMount(){
         let properties = await axios.get(`${this.props_url}${this.state.modelID}`);
         this.setState( { modelDetails : properties.data, ready : true });
-        this.setState( { ready: true } );
+        //this.setState( { ready: true } );
         /*try{
             axios.get(`${this.props_url}${this.state.modelID}`)
             .then((res) => {
