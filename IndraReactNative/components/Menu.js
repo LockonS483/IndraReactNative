@@ -9,9 +9,9 @@ import { ButtonUseModel } from './button.js'
 var width = Dimensions.get('window').width;
 var height = Dimensions.get('window').height;
 
-export const titleText = "titleText"
-export const dropdownBox = "dropdownBox"
-export const confirmButton = "confirmButton"
+export const TITLE_TEXT = "titleText"
+export const DROPDOWN_BOX = "dropdownBox"
+export const CONFIRM_BUTTON = "confirmButton"
 
 
 class Menu extends Component {
