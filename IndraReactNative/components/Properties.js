@@ -96,7 +96,7 @@ class Properties extends Component {
                 <ButtonSubmitOptions testID={mTestID}
                 textStyle={styles.buttonText}
                 buttonStyle={styles.button}
-                navigationPath={['ModelView', this.state.modelDetails, this.state.curID] }
+                navigationPath={['ModelView', this.state.modelDetails, this.state.modelID] }
                 navigation={this.props.navigation}
                 />
                 

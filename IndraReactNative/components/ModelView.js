@@ -8,13 +8,21 @@ class ModelView extends Component {
     constructor(props) {
         super(props);
         const { route, navigation } = this.props
-        this.state = {modelParams: route.params.modelParams, modelID: route.params.modelParams, ready: false}
+        this.state = {modelParams: route.params.modelParams, modelID: route.params.modelID, ready: false}
         this.props_url = config.PROPS_URL;
     }
 
     async componentDidMount(){
-        console.log(this.state.modelParams)
-        let params = await axios.put(`${this.props_url}${this.state.modelID}`, this.state.modelParams)
+        console.log(`${this.props_url}${this.state.modelID}`)
+        let params = axios
+        .put(
+            `${this.props_url}${this.state.modelID}`, 
+            this.state.modelParams, 
+            {headers: {"Content-Type": "json/raw"}}
+        )
+        .then(function(response){
+            console.log(response.header, response.data)
+        })
         
         this.setState({ready: true});
         this.setState({modelNewParams: params.data})
@@ -23,7 +31,7 @@ class ModelView extends Component {
     render(){
         var displayModelParams = "";
         var temp = <Text>loading...</Text>
-        if(this.state.ready == true){
+        if(this.state.ready){
             displayModelParams = JSON.stringify(this.setState.modelNewParams);
             temp = <Text>{displayModelParams}</Text>
         }
