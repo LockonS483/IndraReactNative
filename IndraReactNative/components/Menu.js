@@ -68,7 +68,7 @@ class Menu extends Component {
             <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{paddingBottom: 50}} style = {styles.scroll}>
             <Text 
                 style={styles.titleText}
-                testID={titleText}>
+                testID={TITLE_TEXT}>
                 {this.state.title}
             </Text>
             <Dropdown
@@ -79,14 +79,14 @@ class Menu extends Component {
                 dropdownPosition= {1}
                 containerStyle={styles.containerStyle}
                 onChangeText = {this.onDropdownChange}
-                testID={dropdownBox}
+                testID={DROPDOWN_BOX}
             />
             <Paragraph style={styles.doctext}>
                 {this.state.curDoc}
             </Paragraph>
             <ButtonUseModel
                 buttonStyle = {styles.button}
-                testID = {confirmButton}
+                testID = {CONFIRM_BUTTON}
                 textStyle = {styles.buttonText}
                 navigationPath={['Properties', {modelID: this.state.curID}]}
                 navigation = {this.props.navigation}
