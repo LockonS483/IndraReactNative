@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View, Text } from 'react-native'
 import axios from 'axios'
 import config from '../config'
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 class ModelView extends Component {
@@ -15,29 +16,30 @@ class ModelView extends Component {
     async componentDidMount(){
         console.log(`${this.props_url}${this.state.modelID}`)
         let params = axios
-        .put(
-            `${this.props_url}${this.state.modelID}`, 
-            this.state.modelParams, 
-            {headers: {"Content-Type": "json/raw"}}
-        )
-        .then(function(response){
-            console.log(response.header, response.data)
+        .put(`${this.props_url}${this.state.modelID}`, this.state.modelParams)
+        .then((response) => {
+            //console.log("Response header:", response.header, "\n\n")
+            //console.log("Response data:", response.data)
+            var temp = JSON.stringify(response.data)
+            this.setState({modelNewParams: temp})
         })
+        .catch(error => console.error(error));
         
         this.setState({ready: true});
-        this.setState({modelNewParams: params.data})
     }
 
     render(){
         var displayModelParams = "";
         var temp = <Text>loading...</Text>
         if(this.state.ready){
-            displayModelParams = JSON.stringify(this.setState.modelNewParams);
+            displayModelParams = this.state.modelNewParams;
             temp = <Text>{displayModelParams}</Text>
         }
         return(
             <View>
-                <Text>{temp}</Text>
+                <ScrollView>
+                    <Text>{temp}</Text>
+                </ScrollView>
             </View>
         )
     }

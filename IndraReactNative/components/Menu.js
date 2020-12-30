@@ -29,7 +29,7 @@ class Menu extends Component {
             axios.get(`${this.api_server}models`)
             .then((res) => {
                 var r = res.data;
-                console.log(res.data)
+                //console.log(res.data)
                 var activeNames = [];
                 r.forEach((item, index) => {
                     if(item.active){
