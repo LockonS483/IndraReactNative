@@ -19,6 +19,7 @@ function ButtonUseModel(props){
 
 function ButtonSubmitOptions(props){
     const { buttonStyle, testID, textStyle, navigationPath, navigation} = props
+    console.log("navigation[1]:", navigationPath[1])
     return(
         <TouchableOpacity
             style = {buttonStyle}

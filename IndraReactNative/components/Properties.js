@@ -42,7 +42,9 @@ class Properties extends Component {
     updateJson(key, param){
         let properties = this.state.modelDetails
         properties[key]["val"] = Number(param)
-        this.setState({modelNewDetails: properties})
+        //this.setState({modelNewDetails: properties})
+        //console.log(this.state.modelDetails)
+        //console.log(this.state.modelNewDetails)
     }
 
     render() {
@@ -96,7 +98,7 @@ class Properties extends Component {
                 <ButtonSubmitOptions testID={mTestID}
                 textStyle={styles.buttonText}
                 buttonStyle={styles.button}
-                navigationPath={['ModelView', this.state.modelNewDetails, this.state.modelID] }
+                navigationPath={['ModelView', this.state.modelDetails, this.state.modelID] }
                 navigation={this.props.navigation}
                 />
                 
