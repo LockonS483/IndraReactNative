@@ -26,6 +26,7 @@ class Properties extends Component {
 
     async componentDidMount(){
         let properties = await axios.get(`${this.props_url}${this.state.modelID}`);
+        console.log(properties.data);
         this.setState( { modelDetails : properties.data, ready : true });
         //this.setState( { ready: true } );
         /*try{

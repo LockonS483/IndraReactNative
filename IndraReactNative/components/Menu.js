@@ -26,7 +26,7 @@ class Menu extends Component {
     
     componentDidMount(){
         try{
-            axios.get(`${this.api_server}models`)
+            axios.get(`${this.api_server}models/1`)
             .then((res) => {
                 var r = res.data;
                 //console.log(res.data)

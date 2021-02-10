@@ -1,4 +1,4 @@
-let API_URL = 'https://indrasnet.pythonanywhere.com/';
+let API_URL = 'https://indraabm.pythonanywhere.com/';
 let PROPS_URL = API_URL + 'models/props/'
 
 if (process.env.REACT_APP_API_URL) {
